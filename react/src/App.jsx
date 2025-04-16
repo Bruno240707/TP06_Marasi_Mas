@@ -2,8 +2,22 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-
-
+ 
+const Cita = ({citas}) => {
+  return (
+    <>
+      {citas.map((cita, numeroCita) => (
+      <div id={numeroCita} className="cita">
+        <p>Mascota: {cita.mascota}</p>
+        <p> Dueño: {cita.dueno}</p>
+        <p>Fecha: {cita.fecha}</p>
+        <p>Hora: {cita.hora}</p>
+        <p>Síntomas: {cita.sintomas}</p>
+      </div>
+      ))}
+    </>  
+  )
+}
 
 function App() {
   const [citas, setCitas] = useState([
@@ -13,6 +27,11 @@ function App() {
       fecha: '2025-04-15',
       hora: '10:00',
       sintomas: 'No come hace dos días'
+    },{
+      mascota: 'marap',
+      dueno: 'Eitan',
+      fecha: '2025-04-16',
+      sintomas: 'Nose'
     }])
 
   return (
@@ -38,16 +57,7 @@ function App() {
         
         <div class="contenedorCitas">
           <h1>ADMINISTRAR TUS CITAS</h1>
-          {citas.map((cita, numeroCita) => (
-          <div key={numeroCita} className="cita">
-            <p>Mascota: {cita.mascota}</p>
-            <p> Dueño: {cita.dueno}</p>
-            <p>Fecha: {cita.fecha}</p>
-            <p>Hora: {cita.hora}</p>
-            <p>Síntomas: {cita.sintomas}</p>
-            <hr />
-          </div>
-        ))}
+          <Cita citas={citas}></ Cita>
         </div>
       </div>
     </>

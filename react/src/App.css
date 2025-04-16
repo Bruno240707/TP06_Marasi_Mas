@@ -41,7 +41,6 @@
   color: #888;
 }
 
-/* Reset general */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -55,13 +54,11 @@ body {
   color: #333;
 }
 
-/* Título principal */
 h1 {
   text-align: center;
   margin-bottom: 20px;
 }
 
-/* Contenedores principales */
 .contenedorGeneral {
   display: flex;
   flex-wrap: wrap;
@@ -69,7 +66,6 @@ h1 {
   justify-content: center;
 }
 
-/* Formulario */
 .contenedorCrearCita {
   background-color: #fff;
   border-radius: 12px;
@@ -104,7 +100,6 @@ textarea {
   background-color: #019875;
 }
 
-/* Sección de citas */
 .contenedorCitas {
   background-color: #fff;
   border-radius: 12px;
