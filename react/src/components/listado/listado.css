@@ -1,0 +1,11 @@
+h2 {
+  color: white;
+  text-align: center;
+  font-family: 'Staatliches', cursive;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.lista-citas {
+  margin-top: 1rem;
+}

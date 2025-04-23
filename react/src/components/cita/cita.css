@@ -1,0 +1,35 @@
+.cita {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    border: 1px solid #00c6ff;
+    box-shadow: 0 2px 6px rgba(0, 198, 255, 0.2);
+    margin-bottom: 1.5rem;
+    color: #000;
+  }
+  
+  .cita p {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .cita p span {
+    font-weight: normal;
+  }
+  
+  .cita button {
+    margin-top: 1rem;
+    background-color: #0072ff;
+    color: white;
+    border: none;
+    padding: 0.6rem;
+    width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .cita button:hover {
+    background-color: #005bb5;
+  }
+  
