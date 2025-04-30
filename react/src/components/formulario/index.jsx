@@ -4,7 +4,9 @@ import ValidarFormFecha from '../validarFechaForm';
 import { useState } from 'react';
 
 function Formulario({citas, setCitas}) {
-  const [id, setId] = useState(3)
+  const [id, setId] = useState(0)
+
+  const [confirmacionCita, setConfirmacionCita] = useState(false)
 
   const agregarCita = (e) => {
 
@@ -18,10 +20,11 @@ function Formulario({citas, setCitas}) {
       hora: e.target.hora.value,
       sintomas: e.target.sintomas.value
     }
-
-    setCitas([...citas, nuevaCita])
-    
-    setId(id + 1)
+    if(confirmacionCita == true){
+      setCitas([...citas, nuevaCita])
+      setId(id + 1)
+      setConfirmacionCita(false)
+    }
   }
 
   return (
@@ -39,12 +42,19 @@ function Formulario({citas, setCitas}) {
         <ValidarFormFecha placeHolder="Fecha" name={"fecha"}></ValidarFormFecha>
 
         <label>Hora</label>
-        <input type="time" className="u-full-width" name='hora' />
+        <input type="time" className="u-full-width" name='hora'/>
 
         <label>Síntomas</label>
         <textarea className="u-full-width" name='sintomas'></textarea>
-
-        <button type="submit" className="u-full-width button-primary">Agregar Cita</button>
+        {confirmacionCita ? (
+            <div>
+              <p>¿Estás seguro de que deseas agregar una cita?</p>
+              <button>Sí, agregar</button>
+              <button onClick={() => setConfirmacionCita(false)}>Cancelar</button>
+            </div>
+          ) : (
+            <button onClick={() => setConfirmacionCita(true)}>Agregar cita</button>
+          )}
       </form>
       </div>
     </>

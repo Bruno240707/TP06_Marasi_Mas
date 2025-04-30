@@ -2,17 +2,20 @@ import { useState } from "react"
 
 const ValidarFormFecha = ({placeHolder, name}) => {
     const [fechaError, setFechaError] = useState("")
-    const timeStampActual = Date.now()
+    const fechaActual = new Date()
+    const timeStampActual = fechaActual.getTime()
 
     const handleChangeFecha = (e) => {
         const timeStampIngresado = new Date(e.target.value).getTime()
-        
+
         if(timeStampActual > timeStampIngresado) {
             setFechaError("La fecha no puede ser menor a la actual")
+        } else if (timeStampIngresado === null || timeStampIngresado === undefined || isNaN(timeStampIngresado)){
+            setFechaError("No puede ser vacio")
         }
         else {
             setFechaError("")
-        } 
+        }
     }
 
     return (

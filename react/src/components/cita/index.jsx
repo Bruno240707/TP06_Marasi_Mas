@@ -1,12 +1,20 @@
+import { useState } from "react"
 import "./cita.css"
 
-function cita({cita, citas, setCitas}) 
+function Cita({cita, citas, setCitas}) 
 {
 
+  const [confirmacion, setConfirmacion] = useState(false)
+
   const borrarCita = () => {
-    const citasNuevas = citas.filter(c => c.id != cita.id)
-    setCitas(citasNuevas)
+
+    if(confirmacion == true){
+      const citasAborrar = citas.filter(c => c.id != cita.id)
+      setCitas(citasAborrar)
+      setConfirmacion(false)
+    }
   }
+
 
     return (
         <div className="cita">
@@ -15,10 +23,18 @@ function cita({cita, citas, setCitas})
           <p>Fecha: <span>{cita.fecha}</span></p>
           <p>Hora: <span>{cita.hora}</span></p>
           <p>Síntomas: <span>{cita.sintomas}</span></p>
-          <button className="eliminar" onClick={borrarCita}>Eliminar ×</button>
+          {confirmacion ? (
+            <div>
+              <p>¿Estás seguro de que deseas borrar esta cita?</p>
+              <button onClick={borrarCita}>Sí, borrar</button>
+              <button onClick={() => setConfirmacion(false)}>Cancelar</button>
+            </div>
+          ) : (
+            <button onClick={() => setConfirmacion(true)}>Borrar cita</button>
+          )}
         </div>
       );
 }
 
-export default cita
+export default Cita
 
