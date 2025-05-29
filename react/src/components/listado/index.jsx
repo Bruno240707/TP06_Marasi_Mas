@@ -2,6 +2,7 @@ import Cita from '../cita/index.jsx'
 import './listado.css'
 
 function listado({citas, setCitas}) {
+
     return (
         <>
           <h2>Administra tus citas</h2>

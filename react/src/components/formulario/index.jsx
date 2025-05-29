@@ -8,6 +8,8 @@ function Formulario({citas, setCitas}) {
 
   const [confirmacionCita, setConfirmacionCita] = useState(false)
 
+  
+
   const agregarCita = (e) => {
 
     e.preventDefault()
