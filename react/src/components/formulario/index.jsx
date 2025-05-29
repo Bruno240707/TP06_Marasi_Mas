@@ -3,8 +3,7 @@ import ValidarFormNombre from '../validarNombreForm';
 import ValidarFormFecha from '../validarFechaForm';
 import { useState } from 'react';
 
-function Formulario({citas, setCitas}) {
-  const [id, setId] = useState(0)
+function Formulario({citas, setCitas, setId, idCita}) {
 
   const [confirmacionCita, setConfirmacionCita] = useState(false)
 
@@ -15,7 +14,7 @@ function Formulario({citas, setCitas}) {
     e.preventDefault()
 
     const nuevaCita = {
-      id: id,
+      id: idCita,
       mascota: e.target.mascota.value,
       dueno: e.target.dueno.value,
       fecha: e.target.fecha.value,
@@ -24,7 +23,7 @@ function Formulario({citas, setCitas}) {
     }
     if(confirmacionCita == true){
       setCitas([...citas, nuevaCita])
-      setId(id + 1)
+      setId(idCita + 1)
       setConfirmacionCita(false)
     }
   }
